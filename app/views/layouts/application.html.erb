@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sample</title>
+  <title>Anokono-pantsu</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
+  <header class="navbar">
+    <div class="container">
+      <div id="logo">Anokono-pantsu</div>
+      <ul class="header-right">
+      <li><%= link_to "Top"  ,homes_top_path%></li>
+      <li><%= link_to "second" ,homes_top_path %></li>
+      <li><%= link_to "Test"  ,homes_test_path%></li>
+
+      </ul>
+    </div>
+  </header>
 
 <%= yield %>
 
