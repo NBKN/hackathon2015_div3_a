@@ -1,5 +1,54 @@
 <p id="hello">hellotest</p>
-<p>
-<%= link_to image_tag('cat.jpg'), '/books/index',:id=>"cat" %>
 
-</p>
+<div>
+<button onclick="add();">add</button>
+</div>
+
+<div id="grid-content">
+    <div>
+       <%= link_to image_tag('cat.jpg', :size => "100x100"), '/assets/cat.jpg', :rel => "lightbox"%>
+       <%= link_to image_tag('cat.jpg', :size => "100x100"), '/assets/cat.jpg', :rel => "lightbox"%>
+    </div>
+</div>
+ 
+<script type="text/javascript">
+function loadApp() {
+   // Create the flipbook
+   $('.flipbook').turn({
+      // Width
+      width:922,	
+      // Height
+      height:600,
+      // Elevation
+      elevation: 50,	
+      // Enable gradients
+      gradients: true,		
+      // Auto center this flipbook
+      autoCenter: true
+   });
+}
+
+yepnope({
+    complete: loadApp
+});
+
+$(function(){
+    $("#container").vgrid({
+        easing: "easeOutQuint",
+        time: 500,
+        delay: 20,
+        fadeIn: {
+            time: 300,
+            delay: 50
+        }
+    });
+});
+
+function add() {
+    var div_element = document.createElement("div");
+    div_element.innerHTML = '<%= link_to image_tag("cat.jpg", :size => "100x100"), "/assets/cat.jpg", :rel => "lightbox"%> <%= link_to image_tag("cat.jpg", :size => "100x100"), "/assets/cat.jpg", :rel => "lightbox"%>'
+    var parent_object = document.getElementById("grid-content");
+    parent_object.appendChild(div_element);
+}
+
+</script>
